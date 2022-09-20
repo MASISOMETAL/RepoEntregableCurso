@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     },
     textHead: {
         fontSize: 22,
+        fontFamily: "NotoSerif-Bold",
     },
 })
 

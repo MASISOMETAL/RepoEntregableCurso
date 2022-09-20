@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
     },
     textInputs: {
         fontSize: 26,
+        fontFamily: "NotoSerif-Italic",
     },
     inputs: {
         width: "80%",

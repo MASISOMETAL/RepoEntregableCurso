@@ -1,13 +1,29 @@
 import React, {useState} from "react";
-import { View, Text, StyleSheet, StatusBar } from "react-native";
+import { View, Text, StyleSheet, StatusBar, ActivityIndicator } from "react-native";
 import { CustomHeader, CustomFooter } from "./components";
 import PantallaInicial from './screens/pantallaInicial';
 import PantallaSecundaria from './screens/pantallaSecundaria';
 import { colors } from "./constants/colors";
+import { useFonts } from 'expo-font';
 
 const App = () => {
 
     const [switchPantalla, setSwitchPantalla] = useState(false);
+
+    const [loaded] = useFonts({
+        'NotoSerif-Regular': require('./assets/fonts/NotoSerif-Regular.ttf'),
+        'NotoSerif-Bold': require('./assets/fonts/NotoSerif-Bold.ttf'),
+        'NotoSerif-Italic': require('./assets/fonts/NotoSerif-Italic.ttf'),
+        'NotoSerif-BoldItalic': require('./assets/fonts/NotoSerif-BoldItalic.ttf'),
+      });
+
+      if(!loaded) {
+        return (
+          <View style={styles.containerLoader}>
+            <ActivityIndicator size="large" color={colors.primary} />
+          </View>
+        )
+      }
 
     const switchP = () => {
         setSwitchPantalla(true);
