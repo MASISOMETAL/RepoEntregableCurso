@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
         marginTop: height * 0.01,
     },
     textSelection:{
-        fontSize: 22,
+        fontSize: width >= 420 ? 22 : 18,
         fontWeight: "bold",
     },
     containerBotons:{

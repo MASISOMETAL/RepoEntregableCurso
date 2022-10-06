@@ -1,19 +1,18 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { styles } from "./styles";
-import { database } from "../../components/database";
+import { useSelector } from "react-redux";
 
-const DetailFibra = ({route}) =>{
+const DetailFibra = () =>{
 
-    const {data} = route.params;
-    const db = database.find(item => item.id === data);
+    const data = useSelector((state) => state.databaseStore.database);
 
     return(
-        <View style={{...styles.container, backgroundColor: db.color}}>
+        <View style={{...styles.container, backgroundColor: data.color}}>
             <View style={styles.containerText}>   
-                <Text style={styles.nombre}>{db.nombre}</Text>
-                <Text style={styles.descripcion}>{db.descripcion}</Text>
-                <Text style={styles.precio}>$ {db.precio}</Text>
+                <Text style={styles.nombre}>{data.nombre}</Text>
+                <Text style={styles.descripcion}>{data.descripcion}</Text>
+                <Text style={styles.precio}>$ {data.precio}</Text>
             </View> 
         </View>
     )

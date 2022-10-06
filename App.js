@@ -1,12 +1,16 @@
 import React from "react";
 import { Text, StyleSheet, SafeAreaView, Platform, StatusBar } from "react-native";
 import AppNavigator from "./scr/navigation";
+import { Provider } from "react-redux";
+import store from "./scr/store";//es el index dentro de nuestro store
 
 const App = () =>{
     return(
-        <SafeAreaView style={styles.container}>
-            <AppNavigator/>
-        </SafeAreaView>
+        <Provider store={store}>
+            <SafeAreaView style={styles.container}>
+                <AppNavigator/>
+            </SafeAreaView>
+        </Provider>
     )
 }
 

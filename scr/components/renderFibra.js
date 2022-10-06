@@ -1,15 +1,25 @@
 import React from "react";
 import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import { Colors } from "../constants/color";
+import { useSelector, useDispatch } from "react-redux";
+import { selectOferta } from "../store/actions";
 
 const { height, width} = Dimensions.get("window");
 
-const RenderFibra = ({item, navigation, route}) =>{
+const RenderFibra = ({item, navigation}) =>{
+
+    const data = useSelector((state) => state.databaseStore.database);
+    const dispatch = useDispatch();
+
+    const select = (item) =>{
+        dispatch(selectOferta(item.id))
+        console.warn(useSelector((state) => state.databaseStore.selected));
+        //navigation.navigate("DetalleFibra",{nombre: item.nombre})
+    }
 
     return(
         <TouchableOpacity style={styles.container}
-            onPress={() => navigation.navigate("DetalleFibra",{nombre: item.nombre, data: item.id})}
-            //onPress={() => console.warn(height)}
+            onPress={select(item)}
         >
             <View style={styles.containerText}>
                 <Text style={styles.TextNombre}>{item.nombre}</Text>
