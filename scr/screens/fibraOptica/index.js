@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 const FibraOptica = ({navigation, route}) =>{
 
-    const data = useSelector((state) => state.databaseStore.database);
+    const data = useSelector((state) => state.PromosReducers.promosDB);
     const renderItem = ({item}) => <RenderFibra item={item} navigation={navigation}/>
 
     return(

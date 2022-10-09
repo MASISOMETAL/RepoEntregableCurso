@@ -1,1 +1,1 @@
-export {default as DatabaseReducer} from "./database.reducer";
+export {default as PromosReducer} from "./promosReducers";

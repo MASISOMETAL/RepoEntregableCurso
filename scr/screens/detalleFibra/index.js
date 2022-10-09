@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const DetailFibra = () =>{
 
-    const data = useSelector((state) => state.databaseStore.database);
+    const data = useSelector((state) => state.PromosReducers.selected);
 
     return(
         <View style={{...styles.container, backgroundColor: data.color}}>

@@ -8,18 +8,17 @@ const { height, width} = Dimensions.get("window");
 
 const RenderFibra = ({item, navigation}) =>{
 
-    const data = useSelector((state) => state.databaseStore.database);
     const dispatch = useDispatch();
 
     const select = (item) =>{
         dispatch(selectOferta(item.id))
-        console.warn(useSelector((state) => state.databaseStore.selected));
-        //navigation.navigate("DetalleFibra",{nombre: item.nombre})
+        navigation.navigate("DetalleFibra",{nombre: item.nombre})
     }
 
     return(
+        <View>
         <TouchableOpacity style={styles.container}
-            onPress={select(item)}
+            onPress={() => select(item)}
         >
             <View style={styles.containerText}>
                 <Text style={styles.TextNombre}>{item.nombre}</Text>
@@ -27,6 +26,7 @@ const RenderFibra = ({item, navigation}) =>{
                 <Text style={styles.TextPrecio}>$ {item.precio}</Text>
             </View>
         </TouchableOpacity>
+        </View>
     )
 }
 

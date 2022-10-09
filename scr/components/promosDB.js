@@ -1,4 +1,4 @@
-export const database = [
+export const PromosDB = [
     {
         nombre: "Fibra Optica 300MB",
         descripcion: "Internet 300MB + Telefonia Fija",

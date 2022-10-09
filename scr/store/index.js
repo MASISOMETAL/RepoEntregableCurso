@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from "redux";
-import DatabaseReducer from "./reducers/database.reducer";
+import PromosReducer from "./reducers/promosReducers";
 
 const rootReducer = combineReducers({
-    databaseStore: DatabaseReducer,
+    PromosReducers: PromosReducer,
 });
 
 export default createStore(rootReducer);
